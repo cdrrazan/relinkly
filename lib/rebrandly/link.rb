@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Rebrandly
   class Link < Element
     attr_accessor :id, :link_id, :title, :slashtag, :destination, :created_at,
@@ -6,9 +8,8 @@ module Rebrandly
                   :short_url, :domain_id, :domain_name,
                   :https, :favourite
 
-
     # Associations
-    [:domain, :creator, :integration].each do |association|
+    %i[domain creator integration].each do |association|
       # Creates the getter methods, such as "@instance.domain"
       attr_reader association
 
@@ -25,9 +26,7 @@ module Rebrandly
       end
     end
 
-
-    alias :favorite :favourite
-    alias :favorite= :favourite=
-
+    alias favorite favourite
+    alias favorite= favourite=
   end
 end

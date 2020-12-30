@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Rebrandly
   class Domain < Element
     attr_accessor :id, :ref, :full_name, :top_level_domain, :level,
