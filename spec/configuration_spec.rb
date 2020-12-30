@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Rebrandly do
+describe Relinkly do
   describe Configuration do
     describe '#api_key' do
       it 'has a default value of nil' do

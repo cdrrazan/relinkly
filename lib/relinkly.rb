@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-require 'rebrandly/version'
-require 'rebrandly/configuration'
-require 'rebrandly/api'
-require 'rebrandly/element'
-require 'rebrandly/domain'
-require 'rebrandly/creator'
-require 'rebrandly/integration'
-require 'rebrandly/link'
+require 'relinkly/version'
+require 'relinkly/configuration'
+require 'relinkly/api'
+require 'relinkly/element'
+require 'relinkly/domain'
+require 'relinkly/creator'
+require 'relinkly/integration'
+require 'relinkly/link'
 
-module Rebrandly
+module Relinkly
   class << self
     attr_accessor :configuration
   end
@@ -28,7 +28,7 @@ module Rebrandly
 end
 
 class String
-  def rebrandly_underscore
+  def relinkly_underscore
     gsub(/::/, '/')
       .gsub(/([A-Z]+)([A-Z][a-z])/, '\1_\2')
       .gsub(/([a-z\d])([A-Z])/, '\1_\2')
@@ -36,12 +36,12 @@ class String
       .downcase
   end
 
-  def rebrandly_camelize
+  def relinkly_camelize
     split('_').collect(&:capitalize).join
   end
 
-  def rebrandly_lower_camelize
-    res = rebrandly_camelize
+  def relinkly_lower_camelize
+    res = relinkly_camelize
     res[0].downcase + res[1..-1]
   end
 end

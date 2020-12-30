@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'rebrandly/version'
+require 'relinkly/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "branded_links"
-  spec.version       = Rebrandly::VERSION
+  spec.name          = "relinkly"
+  spec.version       = Relinkly::VERSION
   spec.authors       = ["Rajan Bhattarai"]
   spec.email         = ["hey@rajanbhattarai.com"]
 

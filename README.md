@@ -1,11 +1,11 @@
-# Rebrandly
+# relinkly
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'rebrandly'
+gem 'relinkly'
 ```
 
 And then execute:
@@ -14,7 +14,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install rebrandly
+    $ gem install relinkly
 
 ## Usage
 
@@ -22,7 +22,7 @@ If using Rails, put the following into your application.rb. If just Ruby,
 run this before trying to use the API.
 
 ```ruby
-Rebrandly.configure do |config|
+Relinkly.configure do |config|
   config.api_key = 'YOUR_KEY_HERE'
 end
 ```
@@ -30,7 +30,7 @@ end
 ### Instantiate an API object.
 
 ```ruby
-api = Rebrandly::Api.new
+api = Relinkly::API.new
 ```
 
 ### API Requests

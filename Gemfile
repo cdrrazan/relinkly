@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in rebrandly.gemspec
+# Specify your gem's dependencies in relinkly.gemspec
 gemspec

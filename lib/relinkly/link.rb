@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Rebrandly
+module Relinkly
   class Link < Element
     attr_accessor :id, :link_id, :title, :slashtag, :destination, :created_at,
                   :updated_at, :status, :tags, :scripts, :forward_parameters,
@@ -18,7 +18,7 @@ module Rebrandly
         attrs ||= {}
 
         # Retrieve the class
-        klass = Rebrandly.const_get(association.to_s.rebrandly_camelize)
+        klass = Relinkly.const_get(association.to_s.relinkly_camelize)
 
         # Ex:
         #  @domain = Domain.new(attrs)

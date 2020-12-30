@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Rebrandly
+module Relinkly
   class Domain < Element
     attr_accessor :id, :ref, :full_name, :top_level_domain, :level,
                   :created_at, :updated_at, :custom_homepage, :owner_id, :type,
