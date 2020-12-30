@@ -1,9 +1,5 @@
 # Rebrandly
 
-This is very much a work in progress. I've created this so I could use Ruby to
-shorten URL's with Rebrandly. I hope to continue to work on this gem in the near
-future to do testing, error checking, etc. This is a very early version.
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -57,12 +53,12 @@ api.account                         # GET /v1/account
 
 ```ruby
 my_domain = api.domains.first
-link = api.shorten('https://google.com', domain: my_domain.to_h, title: 'Google', description: 'The Googles!!!', favourite: true)
+link = api.shorten('https://google.com', domain: my_domain.to_h, title: 'Google', description: 'Google Homepage', favourite: true)
 ```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/ardavis/rebrandly.
+Bug reports and pull requests are welcome on GitHub at https://github.com/cdrrazan/relinkly.
 
 
 ## License
