@@ -63,7 +63,7 @@ module Relinkly
     end
 
     # GET /v1/tags/count
-    def tags_count(_options = {})
+    def tag_count(_options = {})
       relinkly_request(:get, 'tags/count')['count']
     end
 

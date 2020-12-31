@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["hey@rajanbhattarai.com"]
 
   spec.summary       = "A Ruby wrapper for the Rebrandly API "
-  spec.description   = "Easily create branded short links in your ruby apps using Rebrandly."
+  spec.description   = "Easily create short links on your ruby apps using Rebrandly API."
   spec.homepage      = "https://github.com/cdrrazan/relinkly"
   spec.license       = "MIT"
 
