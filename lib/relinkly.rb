@@ -8,6 +8,8 @@ require 'relinkly/domain'
 require 'relinkly/creator'
 require 'relinkly/integration'
 require 'relinkly/link'
+require 'relinkly/workspace'
+require 'relinkly/tag'
 
 module Relinkly
   class << self
