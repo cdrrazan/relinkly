@@ -1,4 +1,4 @@
-# relinkly
+# relinkly [![Gem Version](https://badge.fury.io/rb/relinkly.svg)](https://badge.fury.io/rb/relinkly) [![Build Status](https://travis-ci.com/cdrrazan/relinkly.svg?branch=master)](https://travis-ci.com/cdrrazan/relinkly)
 
 ## Installation
 
@@ -66,7 +66,7 @@ api.delete_link(id, options)        # DELETE /v1/links/:id
 api.tags_link(id, options)          # GET /v1/links/:id/tags
 ```
 
-#### Make a new branded short link
+#### Creating your branded short link!
 
 ```ruby
 my_domain = api.domains.first
@@ -74,8 +74,9 @@ link = api.shorten('https://google.com', domain: my_domain.to_h, title: 'Google'
 ```
 
 #### Workspace workaround
-Please see the applicable methods for options available when making requests. In case of new link creation, default workspace is selected if workspace isn't mentioned explictly.
-Please pass the workspace_id in the options as follows in case you want to create branded link to another workspace.
+Please see the applicable methods for options available when making requests. You need to pass the workspace_id in the options as follows in case you want to perform operations other than the default workspace. 
+
+Here's how you can create a link into another workspace. 
 
 ```ruby
 my_domain = api.domains.first
@@ -83,7 +84,9 @@ my_workspace_id = api.workspaces.first.id
 link = api.shorten('https://google.com', domain: my_domain.to_h, title: 'Google', description: 'Google Homepage', workspace: my_workspace_id)
 ```
 
-Please note that `my_domain` should already be included inside `my_workspace`. You can find all the details about your workspace by going here. https://app.rebrandly.com/workspaces
+Please note that `my_domain` should already be included inside `my_workspace`. Similarly other operations on link and tags can be achieved as above.
+
+You can find all the details about your workspace by going here. https://app.rebrandly.com/workspaces
 
 
 ## Contributing
