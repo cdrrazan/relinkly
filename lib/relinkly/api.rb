@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'httparty'
-require 'pry'
 
 module Relinkly
   class RelinklyError < StandardError; end
@@ -12,26 +11,23 @@ module Relinkly
     API_VERSION = 'v1'
     BASE_URL = "https://api.rebrandly.com/#{API_VERSION}"
 
-    ###########################################################
-    # ACCOUNT ENDPOINT
-    # #########################################################
+    # ACCOUNT ENDPOINTS
+
     # GET /v1/account
     def account
       Creator.new(relinkly_request(:get, 'account'))
     end
 
-    ###########################################################
     # WORKSPACES ENDPOINTS
-    # #########################################################
+
     # GET /v1/account/workspaces
     def workspaces(options = {})
       all_workspaces = relinkly_request(:get, 'account/workspaces', options)
       all_workspaces.map { |workspace| Workspace.new(workspace) }
     end
 
-    ###########################################################
-    # DOMAINS ENDPOINT
-    # #########################################################
+    # DOMAINS ENDPOINTS
+
     # GET /v1/domains
     def domains(options = {})
       all_domains = relinkly_request(:get, 'domains', options)
@@ -48,9 +44,8 @@ module Relinkly
       relinkly_request(:get, 'domains/count')['count']
     end
 
-    ###########################################################
-    # TAGS ENDPOINT
-    # #########################################################
+    # TAGS ENDPOINTS
+
     # GET /v1/tags
     def tags(options = {})
       all_tags = relinkly_request(:get, 'tags', options)
@@ -83,9 +78,8 @@ module Relinkly
       Tag.new(relinkly_request(:delete, "tags/#{id}", options))
     end
 
-    ###########################################################
-    # LINKS ENDPOINT
-    # #########################################################
+    # LINKS ENDPOINTS
+
     # GET /v1/links
     def links(options = {})
       all_links = relinkly_request(:get, 'links', options)
@@ -130,7 +124,7 @@ module Relinkly
       options = Hash[options.map { |k, v| [k.to_s.relinkly_lower_camelize.to_sym, v] }]
       workspace_id = options[:workspace]
 
-      # Passes the Workspace_id into header if the link is to be created into specific workspace
+      # Passes the workspace_id into header if the operation requires workspace_id to be included.
       header_with_workspace = workspace_id.nil? ? headers : headers.merge!('workspace' => workspace_id)
       http_attrs = { headers: header_with_workspace }
       case method

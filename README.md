@@ -41,13 +41,13 @@ api.domains                         # GET /v1/domains
 api.domain(id)                      # GET /v1/domains/:id
 api.domain_count(options)           # GET /v1/domains/count
 api.account                         # GET /v1/account
-api.workspaces                      # GET /v1/workspaces
+api.workspaces                      # GET /v1/account/workspaces
 ```
 
 #### Tags
 ```ruby
 api.tags                           # GET /v1/tags
-api.tags(id)                       # GET /v1/tags/:id
+api.tag(id)                        # GET /v1/tags/:id
 api.tag_count(options)             # GET /v1/tags/count
 api.new_tag(options)               # GET /v1/tags/new
 api.update_tag(id, options)        # POST /v1/tags/:id
@@ -66,16 +66,16 @@ api.delete_link(id, options)        # DELETE /v1/links/:id
 api.tags_link(id, options)          # GET /v1/links/:id/tags
 ```
 
-### Make a new branded short link
+#### Make a new branded short link
 
 ```ruby
 my_domain = api.domains.first
 link = api.shorten('https://google.com', domain: my_domain.to_h, title: 'Google', description: 'Google Homepage')
 ```
 
-### Workspace workaround
+#### Workspace workaround
 Please see the applicable methods for options available when making requests. In case of new link creation, default workspace is selected if workspace isn't mentioned explictly.
-Please pass the workspace_id in the options as follows in case you want to created branded link to another workspace.
+Please pass the workspace_id in the options as follows in case you want to create branded link to another workspace.
 
 ```ruby
 my_domain = api.domains.first
