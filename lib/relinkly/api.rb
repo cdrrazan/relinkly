@@ -187,7 +187,7 @@ module Relinkly
 
     private
 
-    def relinkly_request(method, url, options = {})
+    def relinkly_request(method, url, options: {})
       url = "#{BASE_URL}/#{url}"
       # Convert all hash keys into camel case for Relinkly
       options = Hash[options.map { |k, v| [k.to_s.relinkly_lower_camelize.to_sym, v] }]
