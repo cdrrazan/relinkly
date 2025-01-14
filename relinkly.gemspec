@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "relinkly"
   spec.version       = Relinkly::VERSION
   spec.authors       = ["Rajan Bhattarai"]
-  spec.email         = ["hey@rajanbhattarai.com"]
+  spec.email         = ["rajan@rajanbhattarai.com"]
 
   spec.summary       = "A Ruby wrapper for the Rebrandly API "
   spec.description   = "Easily create short links on your ruby apps using Rebrandly API."
