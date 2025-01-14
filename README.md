@@ -1,4 +1,4 @@
-# relinkly [![Gem Version](https://badge.fury.io/rb/relinkly.svg)](https://badge.fury.io/rb/relinkly) [![Build Status](https://travis-ci.com/cyborgINX/relinkly.svg?branch=master)](https://travis-ci.com/cyborgINX/relinkly)
+# relinkly [![Gem Version](https://badge.fury.io/rb/relinkly.svg)](https://badge.fury.io/rb/relinkly)
 
 ## Installation
 
@@ -35,23 +35,14 @@ api = Relinkly::API.new
 
 ### API Requests
 
-#### Account and Workspaces
+#### Account, Workspaces & Domains
+
 ```ruby
+api.account                         # GET /v1/account
+api.workspaces                      # GET /v1/workspaces
 api.domains                         # GET /v1/domains
 api.domain(id)                      # GET /v1/domains/:id
 api.domain_count(options)           # GET /v1/domains/count
-api.account                         # GET /v1/account
-api.workspaces                      # GET /v1/account/workspaces
-```
-
-#### Tags
-```ruby
-api.tags                           # GET /v1/tags
-api.tag(id)                        # GET /v1/tags/:id
-api.tag_count(options)             # GET /v1/tags/count
-api.new_tag(options)               # GET /v1/tags/new
-api.update_tag(id, options)        # POST /v1/tags/:id
-api.delete_tag(id, options)        # DELETE /v1/tags/:id
 ```
 
 #### Links
@@ -62,29 +53,53 @@ api.link_count(options)             # GET /v1/links/count
 api.new_link(options)               # GET /v1/links/new
 api.shorten(destination, options)   # POST /v1/links
 api.update_link(id, options)        # POST /v1/links/:id
+api.delete_links(ids, options)      # DELETE /v1/links
 api.delete_link(id, options)        # DELETE /v1/links/:id
 api.tags_link(id, options)          # GET /v1/links/:id/tags
+api.add_tag_link(id, options)       # POST /v1/links/:id/tags
+api.delete_tag_link(id, options)    # DELETE /v1/links/:id/tags
+api.scripts_link(id, options)       # GET /v1/links/:id/scripts
+api.add_script_link(id, options)    # POST /v1/links/:id/scripts
+api.delete_script_link(id, options) # DELETE /v1/links/:id/scripts
 ```
+
+#### Tags
+```ruby
+api.tags                           # GET /v1/tags
+api.tag(id)                        # GET /v1/tags/:id
+api.tag_count(options)             # GET /v1/tags/count
+api.new_tag(options)               # POST /v1/tags
+api.update_tag(id, options)        # POST /v1/tags/:id
+api.delete_tag(id, options)        # DELETE /v1/tags/:id
+```
+
+#### Scripts
+```ruby
+api.scripts                        # GET /v1/scripts
+api.script(id)                     # GET /v1/scripts/:id
+api.script_count(options)          # GET /v1/scripts/count
+```
+
 
 #### Creating your branded short link!
 
 ```ruby
-my_domain = api.domains.first
-link = api.shorten('https://google.com', domain: my_domain.to_h, title: 'Google', description: 'Google Homepage')
+your_domain = api.domains.first
+branded_link = api.shorten('https://google.com', domain: your_domain.to_h, title: 'Google', description: 'Google Homepage')
 ```
 
 #### Workspace workaround
-Please see the applicable methods for options available when making requests. You need to pass the workspace_id in the options as follows in case you want to perform operations other than the default workspace. 
+Please see the applicable methods for options available when making requests. You need to pass the workspace_id in the options as follows in case you want to select other than the default workspace.
 
-Here's how you can create a link into another workspace. 
+Here's how you can achieve that:
 
 ```ruby
-my_domain = api.domains.first
-my_workspace_id = api.workspaces.first.id
-link = api.shorten('https://google.com', domain: my_domain.to_h, title: 'Google', description: 'Google Homepage', workspace: my_workspace_id)
+your_domain = api.domains.first
+your_workspace_id = api.workspaces.first.id
+branded_link = api.shorten('https://google.com', domain: your_domain.to_h, title: 'Google', description: 'Google Homepage', workspace: your_workspace_id)
 ```
 
-Please note that `my_domain` should already be included inside `my_workspace`. Similarly other operations on link and tags can be achieved as above.
+Please note that `your_domain` should already be included inside `your_workspace`.
 
 You can find all the details about your workspace by going here. https://app.rebrandly.com/workspaces
 
