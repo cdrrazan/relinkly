@@ -2,11 +2,9 @@
 
 module Relinkly
   class Link < Element
-    attr_accessor :id, :link_id, :title, :slashtag, :destination, :created_at,
-                  :updated_at, :status, :tags, :scripts, :forward_parameters,
-                  :clicks, :last_click_date, :last_click_at, :is_public,
-                  :short_url, :domain_id, :domain_name,
-                  :https, :favourite
+    attr_accessor :id, :link_id, :title, :slashtag, :destination, :created_at, :updated_at, :status,
+                  :tags, :scripts, :forward_parameters, :clicks, :last_click_date, :last_click_at,
+                  :is_public, :short_url, :domain_id, :domain_name, :https, :favourite
 
     # Associations
     %i[domain creator integration].each do |association|

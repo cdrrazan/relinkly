@@ -10,6 +10,7 @@ require 'relinkly/integration'
 require 'relinkly/link'
 require 'relinkly/workspace'
 require 'relinkly/tag'
+require 'relinkly/script'
 
 module Relinkly
   class << self
