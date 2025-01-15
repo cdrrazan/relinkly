@@ -1,4 +1,4 @@
-# relinkly [![Gem Version](https://badge.fury.io/rb/relinkly.svg)](https://badge.fury.io/rb/relinkly)
+# relinkly [![Gem Version](https://badge.fury.io/rb/relinkly.svg?icon=si%3Arubygems)](https://badge.fury.io/rb/relinkly)
 
 ## Installation
 
